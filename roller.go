@@ -25,13 +25,13 @@ func main() {
 	// Ex. keystroke TkQ in blt is TK_Q in glb
 	var rl Roller
 	rl.RollHistory = make([]Roll, 0)
-	rl.roll("4d6k3")
+	rl.Roll("4d6k3")
 
-	rl.roll("2d4")
+	rl.Roll("2d4")
 
-	rl.roll("1d20")
+	rl.Roll("1d20")
 
-	rl.roll("6d6")
+	rl.Roll("6d6")
 
 	var astring string
 	for i := 0; i < len(rl.RollHistory); i++ {
