@@ -69,7 +69,7 @@ type Roller struct {
 	RollHistory []Roll
 }
 
-func (rl *Roller) roll(s string) {
+func (rl *Roller) Roll(s string) {
 	var r Roll
 	rx := regexp.MustCompile("^[1-9]+[0-9]*d[1-9]+[0-9]*(k[1-9]+[0-9]*)?")
 	fmt.Printf("Roll command: %v\n", s)
