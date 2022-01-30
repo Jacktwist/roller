@@ -9,48 +9,11 @@ package roller
 
 import (
 	"fmt"
-	"github.com/mpatraw/gopherlibterminal"
 	"math/rand"
 	"regexp"
 	"sort"
 	"strconv"
-	"time"
 )
-
-
-func main() {
-	rand.Seed(time.Now().UnixNano())
-	// Start a gopherlibterminal window
-	// Documentation is slightly adapted from source docs in http://foo.wyrd.name/en:bearlibterminal
-	// Ex. keystroke TkQ in blt is TK_Q in glb
-	var rl Roller
-	rl.RollHistory = make([]Roll, 0)
-	rl.Roll("4d6k3")
-
-	rl.Roll("2d4")
-
-	rl.Roll("1d20")
-
-	rl.Roll("6d6")
-
-	var astring string
-	for i := 0; i < len(rl.RollHistory); i++ {
-		astring = astring + rl.RollHistory[i].String()
-	}
-	fmt.Printf("\nRoller:\n%v", rl.RollHistory[0].String())
-	fmt.Println(astring)
-
-	keyPressed := glt.Read()
-	for keyPressed != glt.TkQ {
-		keyPressed = glt.Read()
-	}
-} // end of main function
-
-// General rectangle structure
-type Rect struct {
-	// Variables for the top left and bottom right corner coordinates
-	x1, x2, y1, y2 int
-}
 
 func sum(array []int) int {
 	result := 0
