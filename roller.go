@@ -13,8 +13,11 @@ import (
 	"regexp"
 	"sort"
 	"strconv"
+	"time"
 )
-
+func init() {
+		rand.Seed(time.Now().UnixNano())
+}
 func sum(array []int) int {
 	result := 0
 	for _, v := range array {
