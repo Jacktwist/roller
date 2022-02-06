@@ -41,7 +41,6 @@ func (rl *Roller) Roll(s string) {
 
 	var r Roll
 	rx := regexp.MustCompile("^[1-9]+[0-9]*d[1-9]+[0-9]*(k[1-9]+[0-9]*)?")
-	fmt.Printf("Roll command: %v\n", s)
 	byteRoll := []byte(s)
 
 	var num, sides, keep []byte
@@ -94,18 +93,20 @@ func (rl *Roller) Roll(s string) {
 	r.Command = s
 	r.Result = sum(rolls)
 	rl.RollHistory = append(rl.RollHistory, r)
-
 }
 
 func (rl *Roller) String() string {
 	var astring string
 	for i := 0; i < len(rl.RollHistory); i++ {
-		astring = rl.RollHistory[i].String()
+		astring += rl.RollHistory[i].String()
 	}
 	return astring
 }
 
 func (r *Roll) String() string {
-	return fmt.Sprintf("%s rolled: %v with a sum of %v\n", r.Command, r.Rolls, r.Result)
-
+	var astring string
+	for i := 0; i < len(r.Rolls); i++ {
+		astring += fmt.Sprintf("%v ", r.Rolls[i])
+	}
+	return fmt.Sprintf("%s rolled: %swith a sum of %v\n", r.Command, astring, r.Result)
 }
