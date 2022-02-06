@@ -9,15 +9,17 @@ package roller
 
 import (
 	"fmt"
-	"math/rand"
 	"regexp"
 	"sort"
 	"strconv"
+	"math/rand"
 	"time"
 )
-func init() {
-		rand.Seed(time.Now().UnixNano())
+
+func init () {
+	rand.Seed(time.Now().UnixNano())
 }
+
 func sum(array []int) int {
 	result := 0
 	for _, v := range array {
@@ -36,6 +38,7 @@ type Roller struct {
 }
 
 func (rl *Roller) Roll(s string) {
+
 	var r Roll
 	rx := regexp.MustCompile("^[1-9]+[0-9]*d[1-9]+[0-9]*(k[1-9]+[0-9]*)?")
 	fmt.Printf("Roll command: %v\n", s)
